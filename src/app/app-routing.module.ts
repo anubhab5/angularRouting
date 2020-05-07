@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AlwaysAuthGuardService } from './services/always-auth-guard.service';
 
 const routes: Routes = [];
 
