@@ -9,8 +9,8 @@ import { ProductAddComponent } from './product/product-add/product-add.component
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
-    canActivate: [AlwaysAuthGuardService]
+    redirectTo: 'login',
+    pathMatch: 'prefix'
   },
   {
     path: 'login',
@@ -22,11 +22,13 @@ const routes: Routes = [
   },
   {
     path: 'viewProduct',
-    component: ProductViewComponent
+    component: ProductViewComponent,
+    canActivate: [AlwaysAuthGuardService]
   },
   {
     path: 'addProduct',
-    component: ProductAddComponent
+    component: ProductAddComponent,
+    canActivate: [AlwaysAuthGuardService]
   }
 ];
 

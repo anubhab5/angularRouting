@@ -2,10 +2,11 @@
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">@U</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li [routerLink]="'viewProduct'"><a>View Products</a></li>
-            <li [routerLink]="'addProduct'"><a>Add Product</a></li>
-            <li [routerLink]="'login'"><a>Login</a></li>
-            <li [routerLink]="'register'"><a>Register</a></li>
+            <li *ngIf='authSvc.isUserValidated()' [routerLink]="'viewProduct'"><a>View Products</a></li>
+            <li *ngIf='authSvc.isUserValidated()' [routerLink]="'addProduct'"><a>Add Product</a></li>
+            <!-- <li *ngIf='!authSvc.isUserValidated()' [routerLink]="'login'"><a>Login</a></li> -->
+            <li *ngIf='authSvc.isUserValidated()' (click)="logout()"><a>Logout</a></li>
+            <li *ngIf='!authSvc.isUserValidated()' [routerLink]="'register'"><a>Register</a></li>
         </ul>
     </div>
 </nav>

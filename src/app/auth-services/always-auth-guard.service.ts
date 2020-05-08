@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
+import { AuthService } from './auth-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlwaysAuthGuardService implements CanActivate {
 
-  constructor() { }
+  constructor(private route: Router, private authSvc: AuthService) { }
 
   canActivate() {
-    console.log("AlwaysAuthGuard");
-    debugger
-    return true;
+    return this.authSvc.isUserValidated();
   }
 }
