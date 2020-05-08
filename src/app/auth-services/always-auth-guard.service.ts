@@ -10,6 +10,7 @@ export class AlwaysAuthGuardService implements CanActivate {
 
   canActivate() {
     console.log("AlwaysAuthGuard");
+    debugger
     return true;
   }
 }
